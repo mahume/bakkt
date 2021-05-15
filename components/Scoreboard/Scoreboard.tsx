@@ -19,6 +19,7 @@ const Scoreboard: FC = () => {
 
 const styles = StyleSheet.create({
     scoreboard: {
+        flex: 2,
         width: "100%",
         display: "flex",
         flexDirection: "column",
