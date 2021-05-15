@@ -6,13 +6,22 @@ import RoundAction from "./RoundAction";
 
 const GameActions: FC = () => {
     return (
-        <View>
+        <View style={styles.actions}>
             <MatchAction />
             <RoundAction />
         </View>
     )
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    actions: {
+        width: "100%",
+        flex: 1,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: 'space-around',
+    },
+});
 
 export default GameActions;
