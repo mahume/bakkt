@@ -1,20 +1,19 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-import { Text, View } from '../components/Themed';
+import {Text, View} from '../components/Themed';
+import Scoreboard from "../components/Scoreboard/Scoreboard";
+import GameBoardGrid from "../components/GameBoard/GameBoardGrid";
+import GameActions from "../components/GameActions/GameActions";
 
 export default function GamePlayScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
-  );
+    return (
+        <View>
+            <Scoreboard/>
+            <GameBoardGrid/>
+            <GameActions/>
+        </View>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({});
