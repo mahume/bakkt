@@ -2,11 +2,16 @@ import React, {FC} from "react";
 import {StyleSheet} from "react-native";
 import {Text, View} from "../Themed";
 
-const Scorecard: FC = () => {
+interface Props {
+    player: string;
+    score: number;
+}
+
+const Scorecard: FC<Props> = ({ player, score}) => {
     return (
         <View style={styles.card}>
-            <Text style={styles.player}>Player</Text>
-            <Text style={styles.score}>Score</Text>
+            <Text style={styles.player}>{player}</Text>
+            <Text style={styles.score}>{score}</Text>
         </View>
     )
 };

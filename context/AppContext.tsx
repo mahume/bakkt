@@ -1,4 +1,4 @@
-import {createContext, ReactNode, Reducer, useContext, useReducer} from "react";
+import React, {createContext, ReactNode, Reducer, useContext, useReducer} from "react";
 import {AppState} from "../typescript/interfaces/state";
 import {AppAction} from "../typescript/interfaces/actions";
 import {INITIAL_APP_STATE} from "../constants/state";

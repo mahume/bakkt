@@ -1,10 +1,12 @@
 import React, {FC} from "react";
-import {Text} from "../Themed";
+import {Text, View} from "../Themed";
 import {StyleSheet} from "react-native";
 
 const RoundAction: FC = () => {
     return (
-        <Text>Round Action</Text>
+        <View>
+            <Text>Round Action</Text>
+        </View>
     )
 };
 

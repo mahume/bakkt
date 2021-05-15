@@ -6,4 +6,6 @@ export type Grid = {
 
 export interface AppState {
     grid: Grid;
+    playerScore: number;
+    opponentScore: number;
 }

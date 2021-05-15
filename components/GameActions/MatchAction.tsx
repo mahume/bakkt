@@ -1,10 +1,12 @@
 import React, {FC} from "react";
 import {StyleSheet} from "react-native";
-import {Text} from "../Themed";
+import {Text, View} from "../Themed";
 
 const MatchAction: FC = () => {
     return (
-        <Text>Match Action</Text>
+        <View>
+            <Text>Match Action</Text>
+        </View>
     )
 };
 

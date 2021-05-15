@@ -2,13 +2,16 @@ import React, {FC} from "react";
 import {Text, View} from "../Themed";
 import {StyleSheet} from "react-native";
 import Scorecard from "./Scorecard";
+import {useAppContext} from "../../context";
 
 const Scoreboard: FC = () => {
+    const { state } = useAppContext();
+
     return (
         <View style={styles.scoreboard}>
             <View style={styles.scorecards}>
-                <Scorecard/>
-                <Scorecard/>
+                <Scorecard player="Player" score={state.playerScore}/>
+                <Scorecard player="Opponent" score={state.opponentScore}/>
             </View>
             <View>
                 <Text style={styles.banner}>Banner</Text>
