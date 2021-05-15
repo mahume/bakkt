@@ -1,15 +1,15 @@
 import React, {FC} from "react";
-import {StyleSheet} from "react-native";
-import {Text, View} from "../Themed";
+import {Button} from "react-native";
+import {View} from "../Themed";
 
 const MatchAction: FC = () => {
+    const handleGameResetOnPress = () => alert("Reset");
+
     return (
         <View>
-            <Text>Match Action</Text>
+            <Button onPress={handleGameResetOnPress} title="Restart Game"/>
         </View>
     )
 };
-
-const styles = StyleSheet.create({});
 
 export default MatchAction;

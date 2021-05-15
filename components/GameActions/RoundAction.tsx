@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {View} from "../Themed";
-import {Button, StyleSheet} from "react-native";
+import {Button} from "react-native";
 import {useAppContext} from "../../context";
 
 const RoundAction: FC = () => {
