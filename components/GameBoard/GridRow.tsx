@@ -10,7 +10,7 @@ interface Props {
 
 const GridRow: FC<Props> = ({ row }) => {
     return (
-        <View>
+        <View style={styles.row}>
             <GridSpace row={row} column="1" />
             <GridSpace row={row} column="2" />
             <GridSpace row={row} column="3" />
@@ -18,6 +18,14 @@ const GridRow: FC<Props> = ({ row }) => {
     )
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    row: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+});
 
 export default GridRow;
