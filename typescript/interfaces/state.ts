@@ -1,6 +1,7 @@
+import {Marker} from "../types/board";
 
 export type Grid = {
-    [key: string]: string;
+    [key: string]: Marker;
 }
 
 export interface AppState {
