@@ -1,10 +1,14 @@
 import React, {FC} from "react";
-import {Text} from "../Themed";
+import {Text, View} from "../Themed";
 import {StyleSheet} from "react-native";
+import Scorecard from "./Scorecard";
 
 const Scoreboard: FC = () => {
     return (
-        <Text>Scoreboard</Text>
+        <View>
+            <Scorecard />
+            <Scorecard />
+        </View>
     )
 };
 
