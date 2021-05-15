@@ -5,26 +5,35 @@ import Scorecard from "./Scorecard";
 
 const Scoreboard: FC = () => {
     return (
-        <View style={styles.container}>
-            <View>
+        <View style={styles.scoreboard}>
+            <View style={styles.scorecards}>
                 <Scorecard/>
                 <Scorecard/>
             </View>
             <View>
-                <Text>Banner</Text>
+                <Text style={styles.banner}>Banner</Text>
             </View>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    container: {
+    scoreboard: {
         width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-around"
     },
+    scorecards: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+    },
+    banner: {
+        fontSize: 22,
+    }
 });
 
 export default Scoreboard;
