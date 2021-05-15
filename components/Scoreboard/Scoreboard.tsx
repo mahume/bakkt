@@ -3,6 +3,7 @@ import {Text, View} from "../Themed";
 import {StyleSheet} from "react-native";
 import Scorecard from "./Scorecard";
 import {useAppContext} from "../../context";
+import Banner from "./Banner";
 
 const Scoreboard: FC = () => {
     const { state } = useAppContext();
@@ -18,9 +19,7 @@ const Scoreboard: FC = () => {
                 <Scorecard player="Player" score={state.playerScore}/>
                 <Scorecard player="Opponent" score={state.opponentScore}/>
             </View>
-            <View>
-                <Text style={styles.banner}>{bannerText}</Text>
-            </View>
+            <Banner />
         </View>
     )
 };

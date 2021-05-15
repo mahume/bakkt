@@ -1,4 +1,4 @@
-import {Marker} from "../types/board";
+import {Marker, Player} from "../types/board";
 
 export type Grid = {
     [key: string]: Marker;
@@ -7,6 +7,7 @@ export type Grid = {
 export interface AppState {
     grid: Grid;
     isGameInProgress: boolean;
+    activePlayer: Player;
     playerScore: number;
     opponentScore: number;
 }

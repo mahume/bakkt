@@ -17,4 +17,5 @@ export const INITIAL_APP_STATE: AppState = {
     isGameInProgress: false,
     playerScore: 0,
     opponentScore: 0,
+    activePlayer: "X",
 };
