@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import {Text, View} from "../Themed";
 import {Column, Row} from "../../typescript/types/board";
-import {StyleSheet} from "react-native";
+import {Pressable, StyleSheet} from "react-native";
 
 interface Props {
     row: Row;
@@ -9,9 +9,13 @@ interface Props {
 }
 
 const GridSpace: FC<Props> = ({ row , column}) => {
+    const handleOnPress = (row: string, column: string) => alert(row + column);
+
     return (
         <View style={styles.space}>
-            <Text style={styles.mark}>{row + column}</Text>
+            <Pressable style={styles.button} onPress={() => handleOnPress(row, column)}>
+                <Text style={styles.mark}>{row + column}</Text>
+            </Pressable>
         </View>
     )
 };
@@ -26,6 +30,13 @@ const styles = StyleSheet.create({
         height: "100%",
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    button: {
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
     },
     mark: {
         fontSize: 28,
