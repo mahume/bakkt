@@ -8,7 +8,7 @@ import GameActions from "../components/GameActions/GameActions";
 
 export default function GamePlayScreen() {
     return (
-        <View>
+        <View style={styles.container}>
             <Scoreboard/>
             <GameBoardGrid/>
             <GameActions/>
@@ -16,4 +16,12 @@ export default function GamePlayScreen() {
     );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+});
