@@ -7,6 +7,11 @@ import {useAppContext} from "../../context";
 const Scoreboard: FC = () => {
     const { state } = useAppContext();
 
+    let bannerText = "";
+    if (state.isGameInProgress) {
+        bannerText = `Play`;
+    }
+
     return (
         <View style={styles.scoreboard}>
             <View style={styles.scorecards}>
@@ -14,7 +19,7 @@ const Scoreboard: FC = () => {
                 <Scorecard player="Opponent" score={state.opponentScore}/>
             </View>
             <View>
-                <Text style={styles.banner}>Banner</Text>
+                <Text style={styles.banner}>{bannerText}</Text>
             </View>
         </View>
     )

@@ -14,6 +14,7 @@ export const INITIAL_GRID: Grid = {
 
 export const INITIAL_APP_STATE: AppState = {
     grid: INITIAL_GRID,
+    isGameInProgress: false,
     playerScore: 0,
     opponentScore: 0,
 };
