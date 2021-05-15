@@ -6,9 +6,9 @@ import GridRow from "./GridRow";
 const GameBoardGrid: FC = () => {
     return (
         <View>
-            <GridRow />
-            <GridRow />
-            <GridRow />
+            <GridRow row="C" />
+            <GridRow row="B" />
+            <GridRow row="A" />
         </View>
     )
 };

@@ -1,10 +1,21 @@
 import React, {FC} from "react";
-import {Text} from "../Themed";
+import {Text, View} from "../Themed";
+import {Column, Row} from "../../typescript/types/board";
+import {StyleSheet} from "react-native";
 
-const GridSpace: FC = () => {
+interface Props {
+    row: Row;
+    column: Column;
+}
+
+const GridSpace: FC<Props> = ({ row , column}) => {
     return (
-        <Text>Space</Text>
+        <View>
+            <Text>{row + column}</Text>
+        </View>
     )
 };
+
+const styles = StyleSheet.create({});
 
 export default GridSpace;
