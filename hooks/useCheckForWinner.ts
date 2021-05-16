@@ -1,22 +1,18 @@
 import {useAppContext} from "../context";
 import {useEffect} from "react";
 import {Column, Player, Row} from "../typescript/types/board";
+import {COLUMNS, ROWS} from "../constants/state";
 
 
 const useCheckForWinner = () => {
     const { state, dispatch } = useAppContext();
 
-    // TODO:
     function checkWinFor(player: Player) {
-        checkRowsForWin("A", player);
-        checkRowsForWin("B", player);
-        checkRowsForWin("C", player);
-
-        checkColumnsForWin("1", player);
-        checkColumnsForWin("2", player);
-        checkColumnsForWin("3", player);
+        ROWS.forEach(row => checkRowsForWin(row, player));
+        COLUMNS.forEach(column => checkColumnsForWin(column, player));
     }
 
+    // TODO: DRY up row/column functions
     function checkRowsForWin(row: Row, player: Player) {
         const gridRow = Object.keys(state.grid).filter(key => key.startsWith(row));
         const isWinner = gridRow.every(column => state.grid[column] === player);

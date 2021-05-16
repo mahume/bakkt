@@ -1,4 +1,5 @@
 import {AppState, Grid} from "../typescript/interfaces/state";
+import {Column, Row} from "../typescript/types/board";
 
 export const INITIAL_GRID: Grid = {
     "A1": "",
@@ -19,3 +20,7 @@ export const INITIAL_APP_STATE: AppState = {
     opponentScore: 0,
     activePlayer: "X",
 };
+
+export const ROWS: Row[] = ["A", "B", "C"];
+
+export const COLUMNS: Column[] = ["1", "2", "3"];
