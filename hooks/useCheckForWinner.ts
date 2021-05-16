@@ -5,11 +5,12 @@ import {COLUMNS, ROWS} from "../constants/state";
 
 
 const useCheckForWinner = () => {
-    const { state, dispatch } = useAppContext();
+    const {state, dispatch} = useAppContext();
 
     function checkWinFor(player: Player) {
         ROWS.forEach(row => checkRowsForWin(row, player));
         COLUMNS.forEach(column => checkColumnsForWin(column, player));
+        checkDiagonalsForWin(player);
     }
 
     // TODO: DRY up row/column functions
@@ -20,6 +21,7 @@ const useCheckForWinner = () => {
         decideWinner(isWinner, player);
     }
 
+    // TODO: DRY up row/column functions
     function checkColumnsForWin(column: Column, player: Player) {
         const gridColumn = Object.keys(state.grid).filter(key => key.endsWith(column));
         const isWinner = gridColumn.every(row => state.grid[row] === player);
@@ -27,7 +29,14 @@ const useCheckForWinner = () => {
         decideWinner(isWinner, player);
     }
 
-    // TODO: Check for diagonal win
+    function checkDiagonalsForWin(player: Player) {
+        // TODO: Enhance logic
+        const isTopLeftBottomRightWin = ["C1", "B2", "A3"].every(space => state.grid[space] === player);
+        const isBottomLeftTopRightWin = ["A1", "B2", "C3"].every(space => state.grid[space] === player);
+
+        decideWinner(isTopLeftBottomRightWin, player);
+        decideWinner(isBottomLeftTopRightWin, player);
+    }
 
     // TODO: Check for draw
 
