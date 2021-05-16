@@ -17,6 +17,14 @@ export const reduceAppContext = (state: AppState, action: AppAction): AppState =
                 ...state,
                 isGameInProgress: action.payload.inProgress
             }
+        case "MARK_SPACE":
+            return {
+                ...state,
+                grid: {
+                    ...state.grid,
+                    [action.payload.space]: action.payload.player,
+                }
+            }
         default: {
             throw new Error(`Unhandled action type: ${action.type}`);
         }

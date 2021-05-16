@@ -1,17 +1,12 @@
 import React, {FC} from "react";
-import {Text, View} from "../Themed";
+import {View} from "../Themed";
 import {StyleSheet} from "react-native";
 import Scorecard from "./Scorecard";
 import {useAppContext} from "../../context";
 import Banner from "./Banner";
 
 const Scoreboard: FC = () => {
-    const { state } = useAppContext();
-
-    let bannerText = "";
-    if (state.isGameInProgress) {
-        bannerText = `Play`;
-    }
+    const {state} = useAppContext();
 
     return (
         <View style={styles.scoreboard}>
@@ -19,7 +14,7 @@ const Scoreboard: FC = () => {
                 <Scorecard player="Player" score={state.playerScore}/>
                 <Scorecard player="Opponent" score={state.opponentScore}/>
             </View>
-            <Banner />
+            <Banner/>
         </View>
     )
 };

@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {Text, View} from "../Themed";
-import {Column, Row} from "../../typescript/types/board";
+import {Column, Row, Space} from "../../typescript/types/board";
 import {Pressable, StyleSheet} from "react-native";
 import {useAppContext} from "../../context";
 
@@ -10,16 +10,34 @@ interface Props {
 }
 
 const GridSpace: FC<Props> = ({row, column}) => {
-    const {state} = useAppContext();
+    const {state, dispatch} = useAppContext();
     const isSpaceDisabled = !state.isGameInProgress
 
-    const handleOnPress = (row: string, column: string) => alert(row + column);
+    const handleOnPress = (row: string, column: string) => {
+        if (state.activePlayer === "X") {
+            dispatch({
+                type: "MARK_SPACE",
+                payload: {
+                    space: (row + column) as Space,
+                    player: "X",
+                },
+            });
+        } else {
+            dispatch({
+                type: "MARK_SPACE",
+                payload: {
+                    space: (row + column) as Space,
+                    player: "O",
+                },
+            });
+        }
+    };
 
     return (
         <View style={styles.space}>
             <Pressable style={styles.button} disabled={isSpaceDisabled}
                        onPress={() => handleOnPress(row, column)}>
-                <Text style={styles.mark}>{row + column}</Text>
+                <Text style={styles.mark}>{state.grid[row + column]}</Text>
             </Pressable>
         </View>
     )
