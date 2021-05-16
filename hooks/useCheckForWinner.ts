@@ -1,6 +1,6 @@
 import {useAppContext} from "../context";
 import {useEffect} from "react";
-import {Player, Row} from "../typescript/types/board";
+import {Column, Player, Row} from "../typescript/types/board";
 
 
 const useCheckForWinner = () => {
@@ -8,12 +8,12 @@ const useCheckForWinner = () => {
 
     // TODO:
     function checkWinFor(player: Player) {
-        checkHorizontalRows("A", player);
-        checkHorizontalRows("B", player);
-        checkHorizontalRows("C", player);
+        checkRowsForWin("A", player);
+        checkRowsForWin("B", player);
+        checkRowsForWin("C", player);
     }
 
-    function checkHorizontalRows(row: Row, player: Player) {
+    function checkRowsForWin(row: Row, player: Player) {
         const gridRow = Object.keys(state.grid).filter(key => key.startsWith(row));
         const isWinner = gridRow.every(column => state.grid[column] === player);
 
@@ -21,6 +21,9 @@ const useCheckForWinner = () => {
     }
 
     // TODO: Check for vertical win
+    function checkColumnsForWin(column: Column, player: Player) {
+
+    }
 
     // TODO: Check for diagonal win
 
