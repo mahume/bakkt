@@ -3,7 +3,6 @@ import {useEffect} from "react";
 import {Column, Player, Row} from "../typescript/types/board";
 import {COLUMNS, ROWS} from "../constants/state";
 
-
 const useCheckForWinner = () => {
     const {state, dispatch} = useAppContext();
 
@@ -11,6 +10,7 @@ const useCheckForWinner = () => {
         ROWS.forEach(row => checkRowsForWin(row, player));
         COLUMNS.forEach(column => checkColumnsForWin(column, player));
         checkDiagonalsForWin(player);
+        checkForDraw();
     }
 
     // TODO: DRY up row/column functions
@@ -38,7 +38,15 @@ const useCheckForWinner = () => {
         decideWinner(isBottomLeftTopRightWin, player);
     }
 
-    // TODO: Check for draw
+    const checkForDraw = () => {
+        // TODO: Expound draw logic. Possibly able to draw earlier
+        const piecesPlayed = Object.values(state.grid).filter(Boolean);
+
+        if (piecesPlayed.length === 9 && state.isGameInProgress) {
+            endRound()
+            alert("Draw!")
+        }
+    }
 
     function decideWinner(isWinner: boolean, player: Player) {
         if (isWinner && player === "X") {
@@ -65,16 +73,13 @@ const useCheckForWinner = () => {
         }
     }
 
-    // TODO: End round fn
     function endRound() {
-        // Reset gameplay
         dispatch({
             type: "SET_GAME_PLAY",
             payload: {
                 inProgress: false,
             }
         })
-        // Reset round
         dispatch({
             type: "RESET_ROUND"
         })
