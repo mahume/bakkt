@@ -4,7 +4,7 @@ import {View} from "../Themed";
 import {useAppContext} from "../../context";
 
 const MatchAction: FC = () => {
-    const { dispatch } = useAppContext();
+    const {dispatch} = useAppContext();
 
     const handleGameResetOnPress = () => {
         dispatch({

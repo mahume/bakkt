@@ -5,11 +5,10 @@ import {useAppContext} from "../../context";
 
 const RoundAction: FC = () => {
     const {state, dispatch} = useAppContext();
-
-    const buttonText = state.isGameInProgress ? "Restart Round" : "Start Round";
+    const {isGameInProgress} = state;
 
     const handleRoundOnPress = () => {
-        if (state.isGameInProgress) {
+        if (isGameInProgress) {
             dispatch({
                 type: "RESET_ROUND"
             })
@@ -17,14 +16,14 @@ const RoundAction: FC = () => {
         dispatch({
             type: "SET_GAME_PLAY",
             payload: {
-                inProgress: !state.isGameInProgress,
+                inProgress: !isGameInProgress,
             }
         })
     }
 
     return (
         <View>
-            <Button onPress={handleRoundOnPress} title={buttonText}/>
+            <Button onPress={handleRoundOnPress} title={isGameInProgress ? "Restart Round" : "Start Round"}/>
         </View>
     )
 };

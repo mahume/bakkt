@@ -3,15 +3,14 @@ import {View} from "../Themed";
 import {StyleSheet} from "react-native";
 import GridRow from "./GridRow";
 
-const GameBoardGrid: FC = () => {
-    return (
-        <View style={styles.grid}>
-            <GridRow row="C" />
-            <GridRow row="B" />
-            <GridRow row="A" />
-        </View>
-    )
-};
+const GameBoardGrid: FC = () => (
+    <View style={styles.grid}>
+        <GridRow row="C"/>
+        <GridRow row="B"/>
+        <GridRow row="A"/>
+    </View>
+)
+
 
 const styles = StyleSheet.create({
     grid: {

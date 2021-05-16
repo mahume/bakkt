@@ -11,10 +11,10 @@ interface Props {
 
 const GridSpace: FC<Props> = ({row, column}) => {
     const {state, dispatch} = useAppContext();
-    const isSpaceDisabled = !state.isGameInProgress
+    const {activePlayer, isGameInProgress, grid} = state;
 
     const handleOnPress = (row: string, column: string) => {
-        if (state.activePlayer === "X") {
+        if (activePlayer === "X") {
             dispatch({
                 type: "MARK_SPACE",
                 payload: {
@@ -47,7 +47,7 @@ const GridSpace: FC<Props> = ({row, column}) => {
 
     return (
         <View style={styles.space}>
-            <Pressable style={styles.button} disabled={isSpaceDisabled}
+            <Pressable style={styles.button} disabled={!isGameInProgress || grid[row + column] !== ""}
                        onPress={() => handleOnPress(row, column)}>
                 <Text style={styles.mark}>{state.grid[row + column]}</Text>
             </Pressable>

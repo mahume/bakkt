@@ -8,15 +8,14 @@ interface Props {
     row: Row;
 }
 
-const GridRow: FC<Props> = ({ row }) => {
-    return (
-        <View style={styles.row}>
-            <GridSpace row={row} column="1" />
-            <GridSpace row={row} column="2" />
-            <GridSpace row={row} column="3" />
-        </View>
-    )
-};
+const GridRow: FC<Props> = ({row}) => (
+    <View style={styles.row}>
+        <GridSpace row={row} column="1"/>
+        <GridSpace row={row} column="2"/>
+        <GridSpace row={row} column="3"/>
+    </View>
+)
+
 
 const styles = StyleSheet.create({
     row: {

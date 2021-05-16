@@ -7,14 +7,13 @@ interface Props {
     score: number;
 }
 
-const Scorecard: FC<Props> = ({ player, score}) => {
-    return (
-        <View style={styles.card}>
-            <Text style={styles.player}>{player}</Text>
-            <Text style={styles.score}>{score}</Text>
-        </View>
-    )
-};
+const Scorecard: FC<Props> = ({player, score}) => (
+    <View style={styles.card}>
+        <Text style={styles.player}>{player}</Text>
+        <Text style={styles.score}>{score}</Text>
+    </View>
+)
+
 
 const styles = StyleSheet.create({
     card: {

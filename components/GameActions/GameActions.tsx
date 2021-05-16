@@ -4,14 +4,12 @@ import {View} from "../Themed";
 import MatchAction from "./MatchAction";
 import RoundAction from "./RoundAction";
 
-const GameActions: FC = () => {
-    return (
-        <View style={styles.actions}>
-            <MatchAction />
-            <RoundAction />
-        </View>
-    )
-};
+const GameActions: FC = () => (
+    <View style={styles.actions}>
+        <MatchAction/>
+        <RoundAction/>
+    </View>
+)
 
 const styles = StyleSheet.create({
     actions: {
