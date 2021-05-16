@@ -5,8 +5,11 @@ import {View} from '../components/Themed';
 import Scoreboard from "../components/Scoreboard/Scoreboard";
 import GameBoardGrid from "../components/GameBoard/GameBoardGrid";
 import GameActions from "../components/GameActions/GameActions";
+import useCheckForWinner from "../hooks/useCheckForWinner";
 
 export default function GamePlayScreen() {
+    useCheckForWinner();
+
     return (
         <View style={styles.container}>
             <Scoreboard/>
