@@ -7,14 +7,12 @@ const useCheckForWinner = () => {
     const { state, dispatch } = useAppContext();
 
     // TODO:
-    // 2. Quarterback fn
     function checkWinFor(player: Player) {
         checkHorizontalRows("A", player);
         checkHorizontalRows("B", player);
         checkHorizontalRows("C", player);
     }
 
-    // Check for horizontal win
     function checkHorizontalRows(row: Row, player: Player) {
         const gridRow = Object.keys(state.grid).filter(key => key.startsWith(row));
         const isWinner = gridRow.every(column => state.grid[column] === player);
@@ -22,13 +20,12 @@ const useCheckForWinner = () => {
         decideWinner(isWinner, player);
     }
 
-    // Check for vertical win
+    // TODO: Check for vertical win
 
-    // Check for diagonal win
+    // TODO: Check for diagonal win
 
-    // Check for draw
+    // TODO: Check for draw
 
-    // If there is a winner, take appropriate actions
     function decideWinner(isWinner: boolean, player: Player) {
         if (isWinner && player === "X") {
             dispatch({
@@ -38,7 +35,8 @@ const useCheckForWinner = () => {
                     score: state.playerScore + 1
                 }
             })
-            alert("Player Wins!")
+            alert("Player Wins!");
+            endRound();
         }
         if (isWinner && player === "O") {
             dispatch({
@@ -48,12 +46,27 @@ const useCheckForWinner = () => {
                     score: state.opponentScore + 1
                 }
             })
-            alert("Opponent Wins!")
+            alert("Opponent Wins!");
+            endRound();
         }
     }
 
+    // TODO: End round fn
+    function endRound() {
+        // Reset gameplay
+        dispatch({
+            type: "SET_GAME_PLAY",
+            payload: {
+                inProgress: false,
+            }
+        })
+        // Reset round
+        dispatch({
+            type: "RESET_ROUND"
+        })
+    }
 
-    // 1. Watch Grid changes
+
     useEffect(() => {
         checkWinFor("X");
         checkWinFor("O");
