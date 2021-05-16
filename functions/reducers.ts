@@ -30,6 +30,12 @@ export const reduceAppContext = (state: AppState, action: AppAction): AppState =
                     [action.payload.space]: action.payload.player,
                 }
             }
+        case "SET_SCORE":
+            const player = action.payload.player === "X" ? "playerScore" : "opponentScore"
+            return {
+                ...state,
+                [player]: action.payload.score
+            }
         default: {
             throw new Error(`Unhandled action type: ${action.type}`);
         }

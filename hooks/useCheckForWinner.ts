@@ -4,7 +4,7 @@ import {Player, Row} from "../typescript/types/board";
 
 
 const useCheckForWinner = () => {
-    const { state } = useAppContext();
+    const { state, dispatch } = useAppContext();
 
     // TODO:
     // 2. Quarterback fn
@@ -18,12 +18,39 @@ const useCheckForWinner = () => {
     function checkHorizontalRows(row: Row, player: Player) {
         const gridRow = Object.keys(state.grid).filter(key => key.startsWith(row));
         const isWinner = gridRow.every(column => state.grid[column] === player);
-        console.log(isWinner);
+
+        decideWinner(isWinner, player);
     }
+
     // Check for vertical win
+
     // Check for diagonal win
+
     // Check for draw
+
     // If there is a winner, take appropriate actions
+    function decideWinner(isWinner: boolean, player: Player) {
+        if (isWinner && player === "X") {
+            dispatch({
+                type: "SET_SCORE",
+                payload: {
+                    player: "X",
+                    score: state.playerScore + 1
+                }
+            })
+            alert("Player Wins!")
+        }
+        if (isWinner && player === "O") {
+            dispatch({
+                type: "SET_SCORE",
+                payload: {
+                    player: "O",
+                    score: state.opponentScore + 1
+                }
+            })
+            alert("Opponent Wins!")
+        }
+    }
 
 
     // 1. Watch Grid changes

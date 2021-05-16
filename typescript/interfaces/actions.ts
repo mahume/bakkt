@@ -1,6 +1,6 @@
 import {Player, Space} from "../types/board";
 
-export type AppAction = InitializeGame | ResetRound | SetGamePlay | SetActivePlayer | MarkSpace;
+export type AppAction = InitializeGame | ResetRound | SetGamePlay | SetActivePlayer | MarkSpace | SetScore;
 
 export interface InitializeGame {
     readonly type: "INITIALIZE_GAME";
@@ -30,4 +30,12 @@ export interface MarkSpace {
         space: Space;
         player: Player;
     };
+}
+
+export interface SetScore {
+    readonly type: "SET_SCORE";
+    readonly payload: {
+        player: Player;
+        score: number;
+    }
 }
