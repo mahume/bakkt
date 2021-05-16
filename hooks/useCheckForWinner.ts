@@ -11,6 +11,10 @@ const useCheckForWinner = () => {
         checkRowsForWin("A", player);
         checkRowsForWin("B", player);
         checkRowsForWin("C", player);
+
+        checkColumnsForWin("1", player);
+        checkColumnsForWin("2", player);
+        checkColumnsForWin("3", player);
     }
 
     function checkRowsForWin(row: Row, player: Player) {
@@ -20,9 +24,11 @@ const useCheckForWinner = () => {
         decideWinner(isWinner, player);
     }
 
-    // TODO: Check for vertical win
     function checkColumnsForWin(column: Column, player: Player) {
+        const gridColumn = Object.keys(state.grid).filter(key => key.endsWith(column));
+        const isWinner = gridColumn.every(row => state.grid[row] === player);
 
+        decideWinner(isWinner, player);
     }
 
     // TODO: Check for diagonal win
