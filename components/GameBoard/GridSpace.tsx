@@ -22,12 +22,24 @@ const GridSpace: FC<Props> = ({row, column}) => {
                     player: "X",
                 },
             });
+            dispatch({
+                type: "SET_ACTIVE_PLAYER",
+                payload: {
+                    activePlayer: "O",
+                },
+            });
         } else {
             dispatch({
                 type: "MARK_SPACE",
                 payload: {
                     space: (row + column) as Space,
                     player: "O",
+                },
+            });
+            dispatch({
+                type: "SET_ACTIVE_PLAYER",
+                payload: {
+                    activePlayer: "X",
                 },
             });
         }

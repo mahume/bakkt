@@ -17,6 +17,11 @@ export const reduceAppContext = (state: AppState, action: AppAction): AppState =
                 ...state,
                 isGameInProgress: action.payload.inProgress
             }
+        case "SET_ACTIVE_PLAYER":
+            return {
+                ...state,
+                activePlayer: action.payload.activePlayer
+            }
         case "MARK_SPACE":
             return {
                 ...state,
